@@ -1,4 +1,68 @@
 * {
     padding: 0;
     margin: 0;
-}
+    text-align: center;
+    list-style-type: none;
+  }
+  
+  header {
+    background-color: rgb(0, 0, 165);
+    height: fit-content;
+    color: white;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+  }
+  
+  .location {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    width: 20vw;
+    padding: 5px 0;
+    margin: 10px;
+    justify-content: space-evenly;
+  }
+  
+  .weather {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    width: 65vw;
+    margin: 10px;
+    justify-content: space-evenly;
+  }
+  
+  #weather-today {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid blue;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+  
+  .today-text {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    justify-content: space-evenly;
+  }
+  
+  .weather5day {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid blue;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+  
+  .days {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    justify-content: space-evenly;
+  }
