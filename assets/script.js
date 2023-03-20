@@ -14,7 +14,8 @@ var day3stats = document.querySelector('#day3-stats');
 var day4date = document.querySelector('#day4-date');
 var day4stats = document.querySelector('#day4-stats');
 var day5date = document.querySelector('#day5-date');
-var day5stats = document.querySelector('#day5-stats')
+var day5stats = document.querySelector('#day5-stats');
+var searchHistory = [];
 
 function searchLocation() {
     console.log(searchInput);
@@ -23,6 +24,17 @@ function searchLocation() {
     // http://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={API key}  zip api call url, for future feature addition
     var geoURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIkey;
     if (city !== "") {
+        var newHistoryItem = document.createElement('li');
+        var newHistoryBtn = document.createElement('button');
+        var history = document.querySelector('#location-history');
+        history.append(newHistoryItem);
+        newHistoryItem.append(newHistoryBtn);
+        newHistoryBtn.value = city;
+        newHistoryBtn.textContent = city;
+        searchHistory.push(city);
+        console.log(searchHistory);
+        localStorage.setItem("Search-History", searchHistory);
+
         fetch(geoURL)
         .then(function (response) {
             return response.json();
