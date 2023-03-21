@@ -21,8 +21,13 @@ var day5date = document.querySelector('#day5-date');
 var day5stats = document.querySelector('#day5-stats');
 var searchHistory = [];
 var historyBtn = document.querySelectorAll('.historyBtn');
+var weather = document.querySelector('.weather');
 
 function searchLocation() {
+    [].forEach.call(weather.querySelectorAll('li'),function(e){
+        e.parentNode.removeChild(e);
+      });
+
     console.log(searchInput);
     city = searchInput.value;
     console.log(city);
@@ -68,6 +73,14 @@ function searchLocation() {
         }
         console.log(days);
         for (i = 0; i < days.length; i++) {
+            var statsList = ["Temp: " + data.list[(i * 8)].main.temp + "°F", "Wind: " + data.list[i * 8].wind.speed + "mph", "Humidity: " + data.list[(i * 8)].main.humidity + "%"];
+            for (j = 0; j < statsList.length; j++) {
+                var newStat = document.createElement('li');
+                newStat.textContent = statsList[j];
+                var eachDay = document.querySelector('#day' + (i+1) + '-stats');
+                eachDay.append(newStat);
+                console.log(j, eachDay);
+            }
         }
     });
     }
@@ -75,6 +88,9 @@ function searchLocation() {
 
 function historySearch(event) {
     if (!event.target.matches('.historyBtn')) return;
+    [].forEach.call(weather.querySelectorAll('li'),function(e){
+        e.parentNode.removeChild(e);
+      });
     city = event.target.textContent;
     console.log(city);
     var geoURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIkey;
