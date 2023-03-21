@@ -9,9 +9,28 @@ var days = document.querySelectorAll('.days');
 var todayDate = document.querySelector('#today-city-date');
 var todayStats = document.querySelector('#today-stats');
 var todayImg = document.querySelector('#today-img');
-var searchHistory = [];
+var searchHistory;
 var historyBtn = document.querySelectorAll('.historyBtn');
 var weather = document.querySelector('.weather');
+
+function renderButtons() {
+    if (localStorage.getItem("Search-History") == null) {
+        searchHistory = [];
+    } else {
+        searchHistory = JSON.parse(localStorage.getItem("Search-History"));
+        console.log(searchHistory);
+        for (i = 0; i < searchHistory.length; i++) {
+            city = searchHistory[i];
+                var newHistoryItem = document.createElement('li');
+                var newHistoryBtn = document.createElement('button');
+                var history = document.querySelector('#location-history');
+                history.append(newHistoryItem);
+                newHistoryItem.append(newHistoryBtn);
+                newHistoryBtn.setAttribute('class', 'historyBtn');
+                newHistoryBtn.textContent = city;
+        }
+    }
+}
 
 function searchLocation() {
     // resets the weather stats
@@ -38,7 +57,7 @@ function searchLocation() {
             newHistoryBtn.textContent = city;
             searchHistory.push(city);
             console.log(searchHistory);
-            localStorage.setItem("Search-History", searchHistory);
+            localStorage.setItem("Search-History", JSON.stringify(searchHistory));
             console.log(data)
             console.log(data[0].lat, data[0].lon);
             lat = data[0].lat;
@@ -130,3 +149,5 @@ function historySearch(event) {
 searchBtn.addEventListener('click', searchLocation);
 
 document.addEventListener('click', historySearch);
+
+renderButtons();

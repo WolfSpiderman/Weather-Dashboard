@@ -21,7 +21,6 @@
   .location {
     display: flex;
     flex-direction: column;
-    border: 1px solid blue;
     width: 20vw;
     padding: 5px 0;
     margin: 10px;
@@ -31,7 +30,6 @@
   .weather {
     display: flex;
     flex-direction: column;
-    border: 1px solid blue;
     width: 65vw;
     margin: 10px;
     justify-content: space-evenly;
@@ -40,7 +38,6 @@
   #weather-today {
     display: flex;
     flex-direction: row;
-    border: 1px solid blue;
     flex-wrap: nowrap;
     justify-content: space-evenly;
   }
@@ -48,7 +45,6 @@
   .today-text {
     display: flex;
     flex-direction: column;
-    border: 1px solid blue;
     justify-content: space-evenly;
   }
   
@@ -62,7 +58,6 @@
   .weather5day {
     display: flex;
     flex-direction: row;
-    border: 1px solid blue;
     flex-wrap: nowrap;
     justify-content: space-evenly;
   }
@@ -73,8 +68,9 @@
   }
 
   .days {
+    color: white;
+    background-color: rgb(0, 0, 165);
     display: flex;
     flex-direction: column;
-    border: 1px solid blue;
     justify-content: space-evenly;
   }
