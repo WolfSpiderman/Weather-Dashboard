@@ -70,7 +70,7 @@ function searchLocation() {
     .then(function (data) {
         console.log(data);
         todayDate.textContent = data.city.name + " " + dayjs().format('MM/DD/YY');
-        todayImg.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@4x.png");
+        todayImg.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@5x.png");
         var todayStatsList = ["Temp: " + data.list[0].main.temp + "°F", "Feels like: " + data.list[0].main.feels_like + "°F", "Wind: " + data.list[0].wind.speed + "mph", "Humidity: " + data.list[0].main.humidity + "%"];
         for (i = 0; i < todayStatsList.length; i++) {
             var newTodayStat = document.createElement('li');
